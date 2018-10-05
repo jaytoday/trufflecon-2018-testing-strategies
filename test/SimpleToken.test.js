@@ -98,6 +98,7 @@ contract('SimpleToken', function(accounts) {
       const bobBalance = await simpleToken.balanceOf.call(bob);
       assert.equal(bobBalance.toNumber(), bobPreBalance.toNumber() + amount);
     });
+
     it('should not allow a transfer to a new address', async () => {
       const amount = 10;
       const ownerBalance = await simpleToken.balanceOf.call(owner);
@@ -112,6 +113,7 @@ contract('SimpleToken', function(accounts) {
           `Error thrown did not contain "revert" - ${err.toString()}`);
       }
     });
+    
     it('should allow a transfer of full balance', async () => {
       const alicePreBalance = await simpleToken.balanceOf.call(alice);
   
