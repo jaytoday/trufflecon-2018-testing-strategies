@@ -50,8 +50,7 @@ contract CapValidator is Ownable {
         public
         onlyOwner
     {
-        if(investorCounts_[token] == 0) {
-            investorCounts_[token] = 1;
-        }
+        require(investorCounts_[token] == 0, "investorCount must be 0");
+        investorCounts_[token] = 1;
     }
 }
