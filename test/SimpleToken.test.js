@@ -80,13 +80,13 @@ contract('SimpleToken', function(accounts) {
   it('should not allow a transfer to a new address if at investorCap', async () => {
     const amount = 10;
     const alicePreBalance = this.aliceBalance;
-    const bobPreBalance = this.bobBalance;
     const CAP = await this.capValidator.CAP();
     assert.equal(this.investorCount.toNumber(), CAP.toNumber());
 
     try {
-      await this.simpleToken.transfer(investorTooFar, amount, {from:owner});
+      await this.simpleToken.transfer(investorTooFar, this.ownerBalance, {from:owner});
     } catch(err) {
+      console.log('here', err.toString());
       err.toString().includes('revert');
     }
   });
