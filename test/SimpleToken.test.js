@@ -85,9 +85,11 @@ contract('SimpleToken', function(accounts) {
 
     try {
       await this.simpleToken.transfer(investorTooFar, this.ownerBalance, {from:owner});
+      assert.isFalse(true, 'Transfer should throw error');
     } catch(err) {
-      console.log('here', err.toString());
-      err.toString().includes('revert');
+      assert.isTrue(
+        err.toString().includes('revert'),
+        `Error thrown did not contain "revert" - ${err.toString()}`);
     }
   });
 
