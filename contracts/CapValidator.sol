@@ -1,6 +1,7 @@
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 /**
  * THIS CODE IS FOR DEMOSTRATION PURPOSES ONLY!!! 
@@ -8,14 +9,14 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
  * DO NOT USE IN PRODUCTION!!!
  */
 
-contract CapValidator {
+contract CapValidator is Ownable {
     using SafeMath for uint;
 
     uint256 public constant CAP = 3;
-    uint256 public investorCount_ = 1;
+    mapping(address => uint) internal investorCounts_;
 
-    function investorCount() public view returns(uint) {
-        return investorCount_;
+    function investorCount(address token) public view returns(uint) {
+        return investorCounts_[token];
     }
 
     function validate(
@@ -30,18 +31,27 @@ contract CapValidator {
         bool fromIsLeaving = (fromBalance.sub(amount) == 0);
 
         if (toIsNew && !fromIsLeaving) {
-            if (investorCount_.add(1) > CAP) {
+            if (investorCounts_[msg.sender].add(1) > CAP) {
                 return false;
             }
-            investorCount_ = investorCount_.add(1);
+            investorCounts_[msg.sender] = investorCounts_[msg.sender].add(1);
             return true;
         }
 
         if (!toIsNew && fromIsLeaving) {
-            investorCount_ = investorCount_.sub(1);
+            investorCounts_[msg.sender] = investorCounts_[msg.sender].sub(1);
             return true;
         }
 
         return true;
+    }
+
+    function setInitialInvestorCount(address token) 
+        public
+        onlyOwner
+    {
+        if(investorCounts_[token] == 0) {
+            investorCounts_[token] = 1;
+        }
     }
 }
