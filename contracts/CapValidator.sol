@@ -2,6 +2,12 @@ pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
+/**
+ * THIS CODE IS FOR DEMOSTRATION PURPOSES ONLY!!! 
+ *
+ * DO NOT USE IN PRODUCTION!!!
+ */
+
 contract CapValidator {
     using SafeMath for uint;
 

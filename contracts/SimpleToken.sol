@@ -5,10 +5,9 @@ import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 import {CapValidator as iValidator} from "./CapValidator.sol";
 
 /**
- * @title SimpleToken
- * @dev Very simple ERC20 Token example, where all tokens are pre-assigned to the creator.
- * Note they can later distribute these tokens as they wish using `transfer` and other
- * `StandardToken` functions.
+ * THIS CODE IS FOR DEMOSTRATION PURPOSES ONLY!!! 
+ *
+ * DO NOT USE IN PRODUCTION!!!
  */
 contract SimpleToken is StandardToken {
 
