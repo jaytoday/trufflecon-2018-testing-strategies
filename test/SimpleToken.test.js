@@ -79,7 +79,6 @@ contract('SimpleToken', function(accounts) {
 
   it('should not allow a transfer to a new address if at investorCap', async () => {
     const amount = 10;
-    const alicePreBalance = this.aliceBalance;
     const CAP = await this.capValidator.CAP();
     assert.equal(this.investorCount.toNumber(), CAP.toNumber());
 
