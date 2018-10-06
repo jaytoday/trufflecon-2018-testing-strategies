@@ -2,7 +2,7 @@
 
 [Presentation](https://github.com/iamchrissmith/trufflecon-2018-testing-strategies/blob/master/TruffleCon%20-%20Testing%20Strategies.pdf)
 
-`[master](https://github.com/iamchrissmith/trufflecon-2018-testing-strategies/tree/master)` - branch provides the starting point for the code
+[`master`](https://github.com/iamchrissmith/trufflecon-2018-testing-strategies/tree/master) - branch provides the starting point for the code
 
 `refactor/testing-revert` - Fixes the test for testing the revert 
 
