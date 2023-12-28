@@ -1,6 +1,8 @@
 # TruffleCon 2018: Testing Strategies
 
-[Presentation](https://github.com/iamchrissmith/trufflecon-2018-testing-strategies/blob/master/TruffleCon%20-%20Testing%20Strategies.pdf)
+[Presentation PDF](https://github.com/iamchrissmith/trufflecon-2018-testing-strategies/blob/master/TruffleCon%20-%20Testing%20Strategies.pdf)
+
+[Video from TruffleCon](https://www.youtube.com/watch?v=yujXMnZcmq0)
 
 [`master`](https://github.com/iamchrissmith/trufflecon-2018-testing-strategies/tree/master) - branch provides the starting point for the code
 
